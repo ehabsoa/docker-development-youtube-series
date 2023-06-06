@@ -27,13 +27,8 @@ kubectl get nodes
 kubectl create ns flux
 
 export GHUSER="ehabsoa"
-fluxctl install `
---git-user=${GHUSER} `
---git-email=${GHUSER}@users.noreply.github.com `
---git-url=git@github.com:${GHUSER}/docker-development-youtube-series `
---git-path=kubernetes/configmaps,kubernetes/secrets,kubernetes/deployments `
---git-branch=flux-test `
---namespace=flux | kubectl apply -f -
+
+fluxctl install --git-user=ehabsoa --git-email=ehabsoa@users.noreply.github.com --git-url=git@github.com:ehabsoa/docker-development-youtube-series --git-path=kubernetes/configmaps,kubernetes/secrets,kubernetes/deployments --git-branch=flux-test --namespace=flux | kubectl apply -f -
 
 kubectl -n flux rollout status deployment/flux
 
