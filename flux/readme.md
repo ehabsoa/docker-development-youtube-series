@@ -26,7 +26,7 @@ kubectl get nodes
 ```
 kubectl create ns flux
 
-$GHUSER = "marcel-dempers"
+export GHUSER="ehabsoa"
 fluxctl install `
 --git-user=${GHUSER} `
 --git-email=${GHUSER}@users.noreply.github.com `
@@ -37,7 +37,7 @@ fluxctl install `
 
 kubectl -n flux rollout status deployment/flux
 
-$env:FLUX_FORWARD_NAMESPACE = "flux"
+export FLUX_FORWARD_NAMESPACE="flux"
 fluxctl list-workloads
 fluxctl identity
 
